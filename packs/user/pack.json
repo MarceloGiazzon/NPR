@@ -1,0 +1,31 @@
+{
+  "$schema": "https://npdev.local/schema/npdev-pack.schema.json",
+  "dslVersion": "1.0.0",
+  "pack": "user",
+  "version": "1.0.0",
+  "namespace": "com.npdev.user",
+  "description": "Portable credential bond for an identity::User: a password hash tied 1:1 to an identity user. Depends on the identity pack for the actual account (username/roles/etc.) -- this pack only adds the credential.",
+  "category": "security",
+  "author": "Marcelo Giazzon",
+  "packs": [
+    { "pack": "identity", "version": "^1.0" }
+  ],
+  "concepts": [
+    {
+      "name": "User",
+      "ui": { "label": "User" },
+      "fields": [
+        { "name": "id", "type": "uuid", "id": true, "required": true, "ui": { "label": "ID" } },
+        {
+          "name": "identityUserId", "type": "reference", "required": true, "unique": true,
+          "reference": { "target": "identity::User", "onDelete": "cascade" },
+          "ui": { "label": "Identity User" }
+        },
+        { "name": "passwordHash", "type": "string", "required": true, "maxLength": 200, "ui": { "label": "Password (hash)" } }
+      ],
+      "invariants": [
+        { "name": "UserPasswordHashRequired", "type": "expression", "expr": "passwordHash != null && passwordHash != ''" }
+      ]
+    }
+  ]
+}
