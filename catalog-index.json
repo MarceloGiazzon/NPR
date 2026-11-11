@@ -1,7 +1,7 @@
 {
   "schemaVersion": "npdev-pack-catalog.v1",
   "repository": "https://github.com/MarceloGiazzon/NPR",
-  "generatedAt": "2026-11-11T04:14:06Z",
+  "generatedAt": "2026-11-11T04:14:09Z",
   "packs": [
     {
       "pack": "approvals",
@@ -11,6 +11,15 @@
       "author": "NPDev",
       "path": "packs/approvals",
       "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/approvals@approvals-1.0.0"
+    },
+    {
+      "pack": "contacts",
+      "version": "1.0.0",
+      "description": "Built-in NPDev contacts pack: organizations (customers, suppliers, partners), the people who work there, and their postal addresses -- with list/detail/edit screens and the common queries. Reference it from any business app instead of re-modelling a CRM-lite by hand.",
+      "category": "other",
+      "author": "NPDev",
+      "path": "packs/contacts",
+      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/contacts@contacts-1.0.0"
     },
     {
       "pack": "user",
