@@ -1,7 +1,7 @@
 {
   "schemaVersion": "npdev-pack-catalog.v1",
   "repository": "https://github.com/MarceloGiazzon/NPR",
-  "generatedAt": "2026-11-11T04:14:42Z",
+  "generatedAt": "2026-11-11T04:14:45Z",
   "packs": [
     {
       "pack": "approvals",
@@ -74,6 +74,15 @@
       "author": "NPDev Sample Author",
       "path": "packs/project-tracker-demo",
       "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/project-tracker-demo@project-tracker-demo-1.0.0"
+    },
+    {
+      "pack": "purchasing",
+      "version": "1.0.0",
+      "description": "NPDev purchasing pack: suppliers, a purchasable-item list, purchase orders with lines, and supplier bills. A person with the 'buyer' role drafts purchase orders and adds lines; 'purchasingManager' also approves orders, maintains suppliers and the item list and may do anything a payables clerk can; 'payables' records supplier bills and their payment. An order is DRAFT, then APPROVED, then RECEIVED (or CANCELLED); a bill is OPEN, then PAID (or VOID). Order totals and the amount owed per supplier are derived by queries, never typed in. The three roles are logical: the importing app binds them with provides.roleBindings { \"buyer\": ..., \"purchasingManager\": ..., \"payables\": ... } (composition refuses when one is unbound) and grants them read/create/update on the pack's concepts in its own roles[] (see the dom-purchasing sample). Numeric bounds are declared as invariants (enforced today) beside field min, because field.min/max are not yet enforced by the platform (REG-255).",
+      "category": "other",
+      "author": "NPDev",
+      "path": "packs/purchasing",
+      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/purchasing@purchasing-1.0.0"
     },
     {
       "pack": "user",
