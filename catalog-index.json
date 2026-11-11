@@ -1,7 +1,7 @@
 {
   "schemaVersion": "npdev-pack-catalog.v1",
   "repository": "https://github.com/MarceloGiazzon/NPR",
-  "generatedAt": "2026-11-11T04:14:38Z",
+  "generatedAt": "2026-11-11T04:14:42Z",
   "packs": [
     {
       "pack": "approvals",
@@ -65,6 +65,15 @@
       "author": "NPDev",
       "path": "packs/notification",
       "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/notification@notification-1.0.0"
+    },
+    {
+      "pack": "project-tracker-demo",
+      "version": "1.0.0",
+      "description": "Demo pack exported from the superuser-admin-console sample to prove the export-concept-to-pack.ps1 script end to end.",
+      "category": "other",
+      "author": "NPDev Sample Author",
+      "path": "packs/project-tracker-demo",
+      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/project-tracker-demo@project-tracker-demo-1.0.0"
     },
     {
       "pack": "user",
