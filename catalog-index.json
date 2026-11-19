@@ -1,7 +1,7 @@
 {
   "schemaVersion": "npdev-pack-catalog.v1",
   "repository": "https://github.com/MarceloGiazzon/NPR.git",
-  "generatedAt": "2026-11-19T01:53:02Z",
+  "generatedAt": "2026-11-19T01:55:40Z",
   "packs": [
     {
       "pack": "approvals",
@@ -95,12 +95,12 @@
     },
     {
       "pack": "sales",
-      "version": "1.0.0",
-      "description": "NPDev sales pack: customers, a price list, sales orders with lines, and invoices. A person with the 'salesRep' role drafts orders and adds lines; 'salesManager' also confirms orders, maintains customers and the price list and may do anything an accountant can; 'accountant' issues invoices and records payment. An order is DRAFT, then CONFIRMED, then INVOICED (or CANCELLED); an invoice is ISSUED, then PAID (or VOID). Order totals and the amount owed per customer are derived by queries, never typed in. The three roles are logical: the importing app binds them with provides.roleBindings { \"salesRep\": ..., \"salesManager\": ..., \"accountant\": ... } (composition refuses when one is unbound) and grants them read/create/update on the pack's concepts in its own roles[] (see the dom-sales sample). Numeric bounds are declared as invariants (enforced today) beside field min, because field.min/max are not yet enforced by the platform (REG-255).",
+      "version": "2.0.0",
+      "description": "NPDev sales pack: customers, a price list, sales orders with lines, and invoices. It keeps only what selling needs: who the customer is lives in the contacts pack (contacts::Organization) and what is sold lives in the products pack (products::Product); a Customer is the selling data about an organization (code, credit limit) and a price-list item is the selling price of a product, each a satellite pointing back to it. A person with the 'salesRep' role drafts orders and adds lines; 'salesManager' also confirms orders, maintains customers and the price list and may do anything an accountant can; 'accountant' issues invoices and records payment. An order is DRAFT, then CONFIRMED, then INVOICED (or CANCELLED); an invoice is ISSUED, then PAID (or VOID). Order totals and the amount owed per customer are derived by queries, never typed in. The three roles are logical: the importing app binds them with provides.roleBindings { \"salesRep\": ..., \"salesManager\": ..., \"accountant\": ... } (composition refuses when one is unbound) and grants them read/create/update on the pack's concepts in its own roles[] (see the dom-sales sample). Numeric bounds are declared as invariants (enforced today) beside field min, because field.min/max are not yet enforced by the platform (REG-255).",
       "category": "other",
       "author": "NPDev",
       "path": "packs/sales",
-      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/sales@sales-1.0.0"
+      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/sales@sales-2.0.0"
     },
     {
       "pack": "tracing",
