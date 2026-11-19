@@ -1,12 +1,22 @@
 {
   "$schema": "../../schemas/pack.schema.json",
-  "dslVersion": "1.0.0",
+  "dslVersion": "3.0.0",
   "pack": "purchasing",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "namespace": "com.npdev.purchasing",
-  "description": "NPDev purchasing pack: suppliers, a purchasable-item list, purchase orders with lines, and supplier bills. A person with the 'buyer' role drafts purchase orders and adds lines; 'purchasingManager' also approves orders, maintains suppliers and the item list and may do anything a payables clerk can; 'payables' records supplier bills and their payment. An order is DRAFT, then APPROVED, then RECEIVED (or CANCELLED); a bill is OPEN, then PAID (or VOID). Order totals and the amount owed per supplier are derived by queries, never typed in. The three roles are logical: the importing app binds them with provides.roleBindings { \"buyer\": ..., \"purchasingManager\": ..., \"payables\": ... } (composition refuses when one is unbound) and grants them read/create/update on the pack's concepts in its own roles[] (see the dom-purchasing sample). Numeric bounds are declared as invariants (enforced today) beside field min, because field.min/max are not yet enforced by the platform (REG-255).",
+  "description": "NPDev purchasing pack: suppliers, a purchasable-item list, purchase orders with lines, and supplier bills. It keeps only what buying needs: who the supplier is lives in the contacts pack (contacts::Organization) and what is bought lives in the products pack (products::Product); a Supplier is the buying data about an organization (code, payment terms) and a purchase item is the standard cost of a product, each a satellite pointing back to it. A person with the 'buyer' role drafts purchase orders and adds lines; 'purchasingManager' also approves orders, maintains suppliers and the item list and may do anything a payables clerk can; 'payables' records supplier bills and their payment. An order is DRAFT, then APPROVED, then RECEIVED (or CANCELLED); a bill is OPEN, then PAID (or VOID). Order totals and the amount owed per supplier are derived by queries, never typed in. The three roles are logical: the importing app binds them with provides.roleBindings { \"buyer\": ..., \"purchasingManager\": ..., \"payables\": ... } (composition refuses when one is unbound) and grants them read/create/update on the pack's concepts in its own roles[] (see the dom-purchasing sample). Numeric bounds are declared as invariants (enforced today) beside field min, because field.min/max are not yet enforced by the platform (REG-255).",
   "category": "other",
   "author": "NPDev",
+  "packs": [
+    {
+      "pack": "contacts",
+      "version": "^1.0"
+    },
+    {
+      "pack": "products",
+      "version": "^1.0"
+    }
+  ],
   "metadata": {
     "summary": "Buys from suppliers. A buyer drafts a purchase order, line by line, from a list of purchasable items; a manager approves it, and it is marked received when the goods arrive. A supplier bill records how much is owed and when, and is later marked paid. Order totals and what is still owed to each supplier are always calculated from the lines and bills, never typed in.",
     "reviewNotes": [
@@ -25,6 +35,7 @@
   "concepts": [
     {
       "name": "Supplier",
+      "satelliteOf": "contacts::Organization",
       "truthLevel": "T2",
       "ui": {
         "label": "Supplier"
@@ -37,6 +48,20 @@
           "required": true
         },
         {
+          "name": "organizationId",
+          "type": "reference",
+          "ui": {
+            "label": "Organization"
+          },
+          "required": true,
+          "unique": true,
+          "reference": {
+            "target": "contacts::Organization",
+            "displayField": "name",
+            "onDelete": "restrict"
+          }
+        },
+        {
           "name": "code",
           "type": "string",
           "ui": {
@@ -45,33 +70,6 @@
           "required": true,
           "unique": true,
           "maxLength": 30
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "ui": {
-            "label": "Name"
-          },
-          "required": true,
-          "maxLength": 200
-        },
-        {
-          "name": "taxId",
-          "type": "string",
-          "ui": {
-            "label": "Tax id"
-          },
-          "required": false,
-          "maxLength": 40
-        },
-        {
-          "name": "email",
-          "type": "string",
-          "ui": {
-            "label": "Email"
-          },
-          "required": false,
-          "maxLength": 254
         },
         {
           "name": "paymentTermsDays",
@@ -106,6 +104,7 @@
     },
     {
       "name": "PurchaseItem",
+      "satelliteOf": "products::Product",
       "truthLevel": "T2",
       "ui": {
         "label": "Purchasable item"
@@ -118,23 +117,18 @@
           "required": true
         },
         {
-          "name": "sku",
-          "type": "string",
+          "name": "productId",
+          "type": "reference",
           "ui": {
-            "label": "SKU"
+            "label": "Product"
           },
           "required": true,
           "unique": true,
-          "maxLength": 40
-        },
-        {
-          "name": "description",
-          "type": "string",
-          "ui": {
-            "label": "Description"
-          },
-          "required": true,
-          "maxLength": 300
+          "reference": {
+            "target": "products::Product",
+            "displayField": "name",
+            "onDelete": "restrict"
+          }
         },
         {
           "name": "standardCost",
@@ -201,7 +195,7 @@
           "required": true,
           "reference": {
             "target": "Supplier",
-            "displayField": "name"
+            "displayField": "code"
           }
         },
         {
@@ -337,15 +331,16 @@
           }
         },
         {
-          "name": "itemId",
+          "name": "productId",
           "type": "reference",
           "ui": {
-            "label": "Item"
+            "label": "Product"
           },
           "required": true,
           "reference": {
-            "target": "PurchaseItem",
-            "displayField": "sku"
+            "target": "products::Product",
+            "displayField": "name",
+            "onDelete": "restrict"
           }
         },
         {
@@ -451,7 +446,7 @@
           "required": true,
           "reference": {
             "target": "Supplier",
-            "displayField": "name"
+            "displayField": "code"
           }
         },
         {
@@ -593,7 +588,7 @@
       "concept": "Supplier",
       "where": "active == true",
       "orderBy": [
-        "name"
+        "code"
       ]
     },
     {
@@ -670,8 +665,7 @@
       "selection": {
         "columns": [
           "code",
-          "name",
-          "email",
+          "organizationId",
           "paymentTermsDays",
           "active"
         ]
@@ -688,8 +682,7 @@
       ],
       "selection": {
         "columns": [
-          "sku",
-          "description",
+          "productId",
           "standardCost",
           "active"
         ]
@@ -725,7 +718,7 @@
       "selection": {
         "columns": [
           "orderId",
-          "itemId",
+          "productId",
           "quantity",
           "unitCost",
           "lineTotal"
