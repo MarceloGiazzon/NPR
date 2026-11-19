@@ -1,7 +1,7 @@
 {
   "schemaVersion": "npdev-pack-catalog.v1",
   "repository": "https://github.com/MarceloGiazzon/NPR.git",
-  "generatedAt": "2026-11-19T18:51:01Z",
+  "generatedAt": "2026-11-19T19:58:23Z",
   "packs": [
     {
       "pack": "approvals",
@@ -10,7 +10,15 @@
       "category": "other",
       "author": "NPDev",
       "path": "packs/approvals",
-      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/approvals@approvals-2.0.0"
+      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/approvals@approvals-2.0.0",
+      "concepts": [
+        "ApprovalRequest",
+        "ApprovalDecision"
+      ],
+      "roles": [
+        "approver",
+        "requester"
+      ]
     },
     {
       "pack": "contacts",
@@ -19,7 +27,12 @@
       "category": "other",
       "author": "NPDev",
       "path": "packs/contacts",
-      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/contacts@contacts-1.1.0"
+      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/contacts@contacts-1.1.0",
+      "concepts": [
+        "Organization",
+        "Contact",
+        "Address"
+      ]
     },
     {
       "pack": "helpdesk",
@@ -28,7 +41,18 @@
       "category": "other",
       "author": "NPDev",
       "path": "packs/helpdesk",
-      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/helpdesk@helpdesk-2.0.0"
+      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/helpdesk@helpdesk-2.0.0",
+      "concepts": [
+        "HelpdeskAgent",
+        "TicketCategory",
+        "Ticket",
+        "TicketComment"
+      ],
+      "roles": [
+        "helpdeskAgent",
+        "helpdeskManager",
+        "requester"
+      ]
     },
     {
       "pack": "identity",
@@ -37,7 +61,18 @@
       "category": "security",
       "author": "NPDev",
       "path": "packs/identity",
-      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/identity@identity-1.5.0"
+      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/identity@identity-1.5.0",
+      "concepts": [
+        "User",
+        "Role",
+        "UserRole",
+        "Credential",
+        "PasswordResetToken",
+        "UserRolePermission",
+        "ExternalIdentity",
+        "UserMfa",
+        "UserSession"
+      ]
     },
     {
       "pack": "inventory",
@@ -49,6 +84,16 @@
       "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/inventory@inventory-2.0.0",
       "needs": [
         "products"
+      ],
+      "concepts": [
+        "Warehouse",
+        "StorageLocation",
+        "StockItem",
+        "StockMovement"
+      ],
+      "roles": [
+        "inventoryManager",
+        "stockkeeper"
       ]
     },
     {
@@ -58,7 +103,16 @@
       "category": "other",
       "author": "NPDev",
       "path": "packs/leave",
-      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/leave@leave-2.0.0"
+      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/leave@leave-2.0.0",
+      "concepts": [
+        "LeaveType",
+        "LeaveRequest"
+      ],
+      "roles": [
+        "employee",
+        "hrAdmin",
+        "leaveApprover"
+      ]
     },
     {
       "pack": "notification",
@@ -67,7 +121,10 @@
       "category": "other",
       "author": "NPDev",
       "path": "packs/notification",
-      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/notification@notification-2.0.0"
+      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/notification@notification-2.0.0",
+      "concepts": [
+        "OutgoingMessage"
+      ]
     },
     {
       "pack": "products",
@@ -76,7 +133,10 @@
       "category": "other",
       "author": "NPDev",
       "path": "packs/products",
-      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/products@products-1.0.0"
+      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/products@products-1.0.0",
+      "concepts": [
+        "Product"
+      ]
     },
     {
       "pack": "project-tracker-demo",
@@ -85,7 +145,10 @@
       "category": "other",
       "author": "NPDev Sample Author",
       "path": "packs/project-tracker-demo",
-      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/project-tracker-demo@project-tracker-demo-1.0.0"
+      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/project-tracker-demo@project-tracker-demo-1.0.0",
+      "concepts": [
+        "Project"
+      ]
     },
     {
       "pack": "purchasing",
@@ -98,6 +161,18 @@
       "needs": [
         "contacts",
         "products"
+      ],
+      "concepts": [
+        "Supplier",
+        "PurchaseItem",
+        "PurchaseOrder",
+        "PurchaseOrderLine",
+        "SupplierBill"
+      ],
+      "roles": [
+        "buyer",
+        "payables",
+        "purchasingManager"
       ]
     },
     {
@@ -111,6 +186,18 @@
       "needs": [
         "contacts",
         "products"
+      ],
+      "concepts": [
+        "Customer",
+        "SalesItem",
+        "SalesOrder",
+        "SalesOrderLine",
+        "Invoice"
+      ],
+      "roles": [
+        "accountant",
+        "salesManager",
+        "salesRep"
       ]
     },
     {
@@ -120,7 +207,10 @@
       "category": "other",
       "author": "NPDev",
       "path": "packs/tracing",
-      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/tracing@tracing-1.0.3"
+      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/tracing@tracing-1.0.3",
+      "concepts": [
+        "TraceEntry"
+      ]
     },
     {
       "pack": "user",
@@ -132,6 +222,9 @@
       "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/user@user-1.0.0",
       "needs": [
         "identity"
+      ],
+      "concepts": [
+        "User"
       ]
     },
     {
@@ -141,7 +234,11 @@
       "category": "web-ui",
       "author": "NPDev",
       "path": "packs/workspace",
-      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/workspace@workspace-1.1.1"
+      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/workspace@workspace-1.1.1",
+      "concepts": [
+        "Menu",
+        "PropertyValue"
+      ]
     }
   ]
 }
