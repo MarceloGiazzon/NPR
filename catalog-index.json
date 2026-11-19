@@ -1,7 +1,7 @@
 {
   "schemaVersion": "npdev-pack-catalog.v1",
   "repository": "https://github.com/MarceloGiazzon/NPR.git",
-  "generatedAt": "2026-11-19T01:52:47Z",
+  "generatedAt": "2026-11-19T01:52:56Z",
   "packs": [
     {
       "pack": "approvals",
@@ -32,12 +32,12 @@
     },
     {
       "pack": "identity",
-      "version": "1.4.0",
+      "version": "1.5.0",
       "description": "Built-in NPDev identity model: users, roles, and their assignments. Intended as the persistent backing for in-app super-user administration and per-user preferences.",
       "category": "security",
       "author": "NPDev",
       "path": "packs/identity",
-      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/identity@identity-1.4.0"
+      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/identity@identity-1.5.0"
     },
     {
       "pack": "inventory",
