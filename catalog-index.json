@@ -1,7 +1,7 @@
 {
   "schemaVersion": "npdev-pack-catalog.v1",
   "repository": "https://github.com/MarceloGiazzon/NPR.git",
-  "generatedAt": "2026-11-19T02:46:41Z",
+  "generatedAt": "2026-11-19T18:51:01Z",
   "packs": [
     {
       "pack": "approvals",
@@ -46,7 +46,10 @@
       "category": "other",
       "author": "NPDev",
       "path": "packs/inventory",
-      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/inventory@inventory-2.0.0"
+      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/inventory@inventory-2.0.0",
+      "needs": [
+        "products"
+      ]
     },
     {
       "pack": "leave",
@@ -91,7 +94,11 @@
       "category": "other",
       "author": "NPDev",
       "path": "packs/purchasing",
-      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/purchasing@purchasing-2.0.0"
+      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/purchasing@purchasing-2.0.0",
+      "needs": [
+        "contacts",
+        "products"
+      ]
     },
     {
       "pack": "sales",
@@ -100,7 +107,11 @@
       "category": "other",
       "author": "NPDev",
       "path": "packs/sales",
-      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/sales@sales-2.0.0"
+      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/sales@sales-2.0.0",
+      "needs": [
+        "contacts",
+        "products"
+      ]
     },
     {
       "pack": "tracing",
@@ -118,7 +129,10 @@
       "category": "security",
       "author": "Marcelo Giazzon",
       "path": "packs/user",
-      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/user@user-1.0.0"
+      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/user@user-1.0.0",
+      "needs": [
+        "identity"
+      ]
     },
     {
       "pack": "workspace",
