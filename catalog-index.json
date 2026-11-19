@@ -1,7 +1,7 @@
 {
   "schemaVersion": "npdev-pack-catalog.v1",
   "repository": "https://github.com/MarceloGiazzon/NPR.git",
-  "generatedAt": "2026-11-19T02:46:25Z",
+  "generatedAt": "2026-11-19T02:46:33Z",
   "packs": [
     {
       "pack": "approvals",
@@ -23,12 +23,12 @@
     },
     {
       "pack": "helpdesk",
-      "version": "1.0.0",
-      "description": "NPDev helpdesk pack: agents, ticket categories, tickets and ticket comments. A person with the 'requester' role raises tickets and adds comments but cannot read the queue; 'helpdeskAgent' works tickets (takes, waits on the requester, resolves, reopens, closes) and comments; 'helpdeskManager' also maintains agents and categories. A ticket is NEW, then OPEN, PENDING (waiting for the requester) and RESOLVED, and finally CLOSED; a ticket cannot be taken, paused, resolved or reopened without an assigned agent (it may still be closed without action straight from NEW). How many tickets are in each state and how many each agent holds are derived by queries. The three roles are logical: the importing app binds them with provides.roleBindings { \"requester\": ..., \"helpdeskAgent\": ..., \"helpdeskManager\": ... } (composition refuses when one is unbound) and grants them read/create/update on the pack's concepts in its own roles[] (see the dom-helpdesk sample).",
+      "version": "2.0.0",
+      "description": "NPDev helpdesk pack: agents, ticket categories, tickets and ticket comments. A person with the 'requester' role raises tickets and adds comments and sees only the tickets they raised themselves (never the queue, and never another requester's ticket); 'helpdeskAgent' works tickets (takes, waits on the requester, resolves, reopens, closes) and comments; 'helpdeskManager' also maintains agents and categories. A ticket is NEW, then OPEN, PENDING (waiting for the requester) and RESOLVED, and finally CLOSED; a ticket cannot be taken, paused, resolved or reopened without an assigned agent (it may still be closed without action straight from NEW). How many tickets are in each state and how many each agent holds are derived by queries. The three roles are logical: the importing app binds them with provides.roleBindings { \"requester\": ..., \"helpdeskAgent\": ..., \"helpdeskManager\": ... } (composition refuses when one is unbound) and grants them read/create/update on the pack's concepts in its own roles[] (see the dom-helpdesk sample).",
       "category": "other",
       "author": "NPDev",
       "path": "packs/helpdesk",
-      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/helpdesk@helpdesk-1.0.0"
+      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/helpdesk@helpdesk-2.0.0"
     },
     {
       "pack": "identity",
