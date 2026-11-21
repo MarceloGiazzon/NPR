@@ -1,7 +1,7 @@
 {
   "schemaVersion": "npdev-pack-catalog.v1",
   "repository": "https://github.com/MarceloGiazzon/NPR.git",
-  "generatedAt": "2026-11-20T21:26:33Z",
+  "generatedAt": "2026-11-21T01:01:00Z",
   "packs": [
     {
       "pack": "approvals",
@@ -177,12 +177,12 @@
     },
     {
       "pack": "ratings",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Reusable 1-to-5 star ratings with an optional comment, owner-scoped access, and full read visibility for managers.",
       "category": "other",
       "author": "",
       "path": "packs/ratings",
-      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/ratings@ratings-1.0.0",
+      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/ratings@ratings-1.0.1",
       "concepts": [
         "Rating"
       ]
