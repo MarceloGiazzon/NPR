@@ -1,0 +1,32 @@
+{
+  "id": "leave",
+  "version": "3.0.0",
+  "trust": "verified",
+  "need": "Request and approve vacation and time off",
+  "provides": {
+    "concepts": [
+      "LeaveType(code, name)",
+      "LeaveRequest(requestNumber, employeeName, startDate, status:PENDING|APPROVED|REJECTED|CANCELLED)"
+    ],
+    "roles": [
+      "employee -> writes LeaveRequest; reads LeaveType, LeaveRequest",
+      "hrAdmin -> writes LeaveType, LeaveRequest; reads LeaveType, LeaveRequest",
+      "leaveApprover -> writes LeaveRequest; reads LeaveType, LeaveRequest"
+    ],
+    "flows": [
+      "RequestLeave(LeaveRequest) -> validate-request > save-request > await-decision",
+      "ApplyLeaveDecision() -> read-request > still-pending > return-request"
+    ],
+    "events": [
+      "LeaveDecided",
+      "LeaveCancelled"
+    ],
+    "screens": [
+      "LeaveTypes /leave-types",
+      "LeaveRequests /leave-requests"
+    ]
+  },
+  "use": "{\"from\": \"git+https://github.com/MarceloGiazzon/NPR.git//packs/leave@leave-3.0.0\", \"provides\": {\"roleBindings\": {\"employee\": \"<YourRole>\", \"hrAdmin\": \"<YourRole>\", \"leaveApprover\": \"<YourRole>\"}}}",
+  "limit": "There is no balance check: a request is accepted even when the employee has used up the leave type's yearly allowance, and the allowance is not reset each year. Say how balances accrue, carry over...",
+  "budgetTokens": 300
+}

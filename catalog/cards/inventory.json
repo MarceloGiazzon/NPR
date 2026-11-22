@@ -1,0 +1,35 @@
+{
+  "id": "inventory",
+  "version": "3.0.0",
+  "trust": "verified",
+  "need": "Know what is in stock and where",
+  "provides": {
+    "concepts": [
+      "Warehouse(code, name)",
+      "StorageLocation(code, kind)",
+      "StockItem()",
+      "StockMovement(type, quantity, status:DRAFT|POSTED|REVERSED|CANCELLED)"
+    ],
+    "roles": [
+      "inventoryManager -> writes Warehouse, StorageLocation, StockItem; reads Warehouse, StorageLocation, StockItem",
+      "stockkeeper -> writes StockMovement; reads Warehouse, StorageLocation, StockItem"
+    ],
+    "events": [
+      "StockMovementPosted",
+      "StockMovementCancelled",
+      "StockMovementReversed"
+    ],
+    "screens": [
+      "Warehouses /warehouses",
+      "StorageLocations /storage-locations",
+      "StockItems /stock-items",
+      "StockMovements /stock-movements"
+    ]
+  },
+  "use": "{\"from\": \"git+https://github.com/MarceloGiazzon/NPR.git//packs/inventory@inventory-3.0.0\", \"provides\": {\"roleBindings\": {\"inventoryManager\": \"<YourRole>\", \"stockkeeper\": \"<YourRole>\"}}}",
+  "limit": "Negative stock is NOT prevented: nothing stops a posted issue or transfer taking a location below zero. Decide whether your business forbids it; enforcing it needs a balance check inside the postin...",
+  "requires": [
+    "products"
+  ],
+  "budgetTokens": 287
+}

@@ -1,0 +1,41 @@
+{
+  "id": "sales",
+  "version": "3.0.0",
+  "trust": "verified",
+  "need": "Sell: orders, items and invoices",
+  "provides": {
+    "concepts": [
+      "Customer(code)",
+      "SalesItem(unitPrice)",
+      "SalesOrder(orderNumber, status:DRAFT|CONFIRMED|INVOICED|CANCELLED)",
+      "SalesOrderLine(quantity, unitPrice)",
+      "Invoice(invoiceNumber, amount, dueDate, status:ISSUED|PAID|VOID)"
+    ],
+    "roles": [
+      "accountant -> writes Invoice; reads Customer, SalesItem, SalesOrder",
+      "salesManager -> writes Customer, SalesItem, SalesOrder; reads Customer, SalesItem, SalesOrder",
+      "salesRep -> writes SalesOrder, SalesOrderLine; reads Customer, SalesItem, SalesOrder"
+    ],
+    "events": [
+      "SalesOrderConfirmed",
+      "SalesOrderCancelled",
+      "SalesOrderInvoiced",
+      "InvoicePaid",
+      "InvoiceVoided"
+    ],
+    "screens": [
+      "Customers /customers",
+      "PriceList /price-list",
+      "SalesOrders /sales-orders",
+      "SalesOrderLines /sales-order-lines",
+      "Invoices /invoices"
+    ]
+  },
+  "use": "{\"from\": \"git+https://github.com/MarceloGiazzon/NPR.git//packs/sales@sales-3.0.0\", \"provides\": {\"roleBindings\": {\"accountant\": \"<YourRole>\", \"salesManager\": \"<YourRole>\", \"salesRep\": \"<YourRole>\"}}}",
+  "limit": "No discounts and no tax: a line total is quantity times unit price. Say which discounts and which taxes your business applies, and whether prices include tax.",
+  "requires": [
+    "contacts",
+    "products"
+  ],
+  "budgetTokens": 324
+}

@@ -1,0 +1,21 @@
+{
+  "id": "contacts",
+  "version": "2.0.0",
+  "trust": "verified",
+  "need": "Register companies, their contacts and addresses",
+  "provides": {
+    "concepts": [
+      "Organization(name, kind)",
+      "Contact(firstName, lastName)",
+      "Address(kind, line1, city)"
+    ],
+    "screens": [
+      "Organizations /organizations",
+      "Contacts /contacts",
+      "Addresses /addresses"
+    ]
+  },
+  "use": "{\"from\": \"git+https://github.com/MarceloGiazzon/NPR.git//packs/contacts@contacts-2.0.0\"}",
+  "limit": "no limit was recorded for this pack",
+  "budgetTokens": 119
+}

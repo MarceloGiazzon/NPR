@@ -1,0 +1,35 @@
+{
+  "id": "helpdesk",
+  "version": "3.0.0",
+  "trust": "verified",
+  "need": "Help desk / IT support: handle tickets from customers or staff",
+  "provides": {
+    "concepts": [
+      "HelpdeskAgent(fullName, email)",
+      "TicketCategory(code, name)",
+      "Ticket(ticketNumber, requesterName, requesterEmail, status:NEW|OPEN|PENDING|RESOLVED|CLOSED)",
+      "TicketComment(authorName, body)"
+    ],
+    "roles": [
+      "helpdeskAgent -> writes Ticket, TicketComment; reads HelpdeskAgent, TicketCategory, Ticket",
+      "helpdeskManager -> writes HelpdeskAgent, TicketCategory, Ticket; reads HelpdeskAgent, TicketCategory, Ticket",
+      "requester -> writes Ticket, TicketComment; reads TicketCategory, Ticket"
+    ],
+    "events": [
+      "TicketTaken",
+      "TicketPending",
+      "TicketResolved",
+      "TicketReopened",
+      "TicketClosed"
+    ],
+    "screens": [
+      "HelpdeskAgents /helpdesk-agents",
+      "TicketCategories /ticket-categories",
+      "Tickets /tickets",
+      "TicketComments /ticket-comments"
+    ]
+  },
+  "use": "{\"from\": \"git+https://github.com/MarceloGiazzon/NPR.git//packs/helpdesk@helpdesk-3.0.0\", \"provides\": {\"roleBindings\": {\"helpdeskAgent\": \"<YourRole>\", \"helpdeskManager\": \"<YourRole>\", \"requester\": \"<YourRole>\"}}}",
+  "limit": "There are no response or resolution deadlines (SLAs) and no breach warnings. Say what time targets each priority has.",
+  "budgetTokens": 311
+}

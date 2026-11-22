@@ -1,0 +1,14 @@
+{
+  "id": "notification",
+  "version": "2.0.0",
+  "trust": "verified",
+  "need": "Send emails and keep a record of what was sent",
+  "provides": {
+    "concepts": [
+      "OutgoingMessage(to, subject, body)"
+    ]
+  },
+  "use": "{\"from\": \"git+https://github.com/MarceloGiazzon/NPR.git//packs/notification@notification-2.0.0\"}",
+  "limit": "no limit was recorded for this pack",
+  "budgetTokens": 87
+}

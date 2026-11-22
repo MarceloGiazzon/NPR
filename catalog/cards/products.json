@@ -1,0 +1,17 @@
+{
+  "id": "products",
+  "version": "2.0.0",
+  "trust": "verified",
+  "need": "Keep a single catalog of products and services",
+  "provides": {
+    "concepts": [
+      "Product(sku, name, kind)"
+    ],
+    "screens": [
+      "Products /products"
+    ]
+  },
+  "use": "{\"from\": \"git+https://github.com/MarceloGiazzon/NPR.git//packs/products@products-2.0.0\"}",
+  "limit": "A product has one unit of measure. Say whether you buy in one unit and sell in another (box of 12 vs unit).",
+  "budgetTokens": 108
+}

@@ -1,0 +1,22 @@
+{
+  "id": "identity",
+  "version": "1.5.0",
+  "trust": "verified",
+  "need": "Control who gets into the app and what each person can do",
+  "provides": {
+    "concepts": [
+      "User(username, displayName)",
+      "Role(name)",
+      "UserRole()",
+      "Credential(passwordHash)",
+      "PasswordResetToken(tokenHash, expiresAt)",
+      "UserRolePermission(permission)",
+      "ExternalIdentity(provider, providerSubject)",
+      "UserMfa(secret)",
+      "UserSession(sessionId, createdAt)"
+    ]
+  },
+  "use": "{\"from\": \"git+https://github.com/MarceloGiazzon/NPR.git//packs/identity@identity-1.5.0\"}",
+  "limit": "no limit was recorded for this pack",
+  "budgetTokens": 143
+}

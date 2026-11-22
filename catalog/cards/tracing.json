@@ -1,0 +1,17 @@
+{
+  "id": "tracing",
+  "version": "2.0.0",
+  "trust": "verified",
+  "need": "See what the app did, without exposing sensitive data",
+  "provides": {
+    "concepts": [
+      "TraceEntry(executionId, correlationId, flowName)"
+    ],
+    "screens": [
+      "Trace Viewer /trace-entries"
+    ]
+  },
+  "use": "{\"from\": \"git+https://github.com/MarceloGiazzon/NPR.git//packs/tracing@tracing-2.0.0\"}",
+  "limit": "no limit was recorded for this pack",
+  "budgetTokens": 99
+}

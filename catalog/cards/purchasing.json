@@ -1,0 +1,41 @@
+{
+  "id": "purchasing",
+  "version": "3.0.0",
+  "trust": "verified",
+  "need": "Buy from suppliers and pay the bills",
+  "provides": {
+    "concepts": [
+      "Supplier(code)",
+      "PurchaseItem(standardCost)",
+      "PurchaseOrder(orderNumber, status:DRAFT|APPROVED|RECEIVED|CANCELLED)",
+      "PurchaseOrderLine(quantity, unitCost)",
+      "SupplierBill(billNumber, amount, dueDate, status:OPEN|PAID|VOID)"
+    ],
+    "roles": [
+      "buyer -> writes PurchaseOrder, PurchaseOrderLine; reads Supplier, PurchaseItem, PurchaseOrder",
+      "payables -> writes SupplierBill; reads Supplier, PurchaseItem, PurchaseOrder",
+      "purchasingManager -> writes Supplier, PurchaseItem, PurchaseOrder; reads Supplier, PurchaseItem, PurchaseOrder"
+    ],
+    "events": [
+      "PurchaseOrderApproved",
+      "PurchaseOrderCancelled",
+      "PurchaseOrderReceived",
+      "SupplierBillPaid",
+      "SupplierBillVoided"
+    ],
+    "screens": [
+      "Suppliers /suppliers",
+      "PurchaseItems /purchase-items",
+      "PurchaseOrders /purchase-orders",
+      "PurchaseOrderLines /purchase-order-lines",
+      "SupplierBills /supplier-bills"
+    ]
+  },
+  "use": "{\"from\": \"git+https://github.com/MarceloGiazzon/NPR.git//packs/purchasing@purchasing-3.0.0\", \"provides\": {\"roleBindings\": {\"buyer\": \"<YourRole>\", \"payables\": \"<YourRole>\", \"purchasingManager\": \"<YourRole>\"}}}",
+  "limit": "No tax and no discounts: a line total is quantity times unit cost. Say which taxes and supplier discounts apply, and whether costs include tax.",
+  "requires": [
+    "contacts",
+    "products"
+  ],
+  "budgetTokens": 348
+}

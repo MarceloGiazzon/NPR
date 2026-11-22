@@ -1,0 +1,103 @@
+{
+  "packs": [
+    {
+      "id": "helpdesk",
+      "version": "3.0.0",
+      "trust": "verified",
+      "source": "builtin",
+      "l0Tokens": 28,
+      "cardTokens": 311
+    },
+    {
+      "id": "notification",
+      "version": "2.0.0",
+      "trust": "verified",
+      "source": "builtin",
+      "l0Tokens": 26,
+      "cardTokens": 87
+    },
+    {
+      "id": "tracing",
+      "version": "2.0.0",
+      "trust": "verified",
+      "source": "builtin",
+      "l0Tokens": 25,
+      "cardTokens": 99
+    },
+    {
+      "id": "inventory",
+      "version": "3.0.0",
+      "trust": "verified",
+      "source": "builtin",
+      "l0Tokens": 22,
+      "cardTokens": 287
+    },
+    {
+      "id": "purchasing",
+      "version": "3.0.0",
+      "trust": "verified",
+      "source": "builtin",
+      "l0Tokens": 25,
+      "cardTokens": 348
+    },
+    {
+      "id": "approvals",
+      "version": "3.0.0",
+      "trust": "verified",
+      "source": "builtin",
+      "l0Tokens": 19,
+      "cardTokens": 253
+    },
+    {
+      "id": "leave",
+      "version": "3.0.0",
+      "trust": "verified",
+      "source": "builtin",
+      "l0Tokens": 21,
+      "cardTokens": 300
+    },
+    {
+      "id": "workspace",
+      "version": "1.1.1",
+      "trust": "verified",
+      "source": "builtin",
+      "l0Tokens": 21,
+      "cardTokens": 92
+    },
+    {
+      "id": "contacts",
+      "version": "2.0.0",
+      "trust": "verified",
+      "source": "builtin",
+      "l0Tokens": 23,
+      "cardTokens": 119
+    },
+    {
+      "id": "identity",
+      "version": "1.5.0",
+      "trust": "verified",
+      "source": "builtin",
+      "l0Tokens": 25,
+      "cardTokens": 143
+    },
+    {
+      "id": "products",
+      "version": "2.0.0",
+      "trust": "verified",
+      "source": "builtin",
+      "l0Tokens": 22,
+      "cardTokens": 108
+    },
+    {
+      "id": "sales",
+      "version": "3.0.0",
+      "trust": "verified",
+      "source": "builtin",
+      "l0Tokens": 22,
+      "cardTokens": 324
+    }
+  ],
+  "l0TotalTokens": 279,
+  "skipped": [],
+  "problems": []
+}

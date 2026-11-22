@@ -1,0 +1,12 @@
+helpdesk|module|communication|verified|Help desk / IT support: handle tickets from customers or staff|requires:
+notification|capability|communication|verified|Send emails and keep a record of what was sent|requires:
+tracing|module|compliance|verified|See what the app did, without exposing sensitive data|requires:
+inventory|module|inventory|verified|Know what is in stock and where|requires:products
+purchasing|module|inventory|verified|Buy from suppliers and pay the bills|requires:contacts,products
+approvals|module|operations|verified|Request and decide approvals|requires:
+leave|module|operations|verified|Request and approve vacation and time off|requires:
+workspace|module|operations|verified|Organize the app's menus and settings|requires:
+contacts|concept|people|verified|Register companies, their contacts and addresses|requires:
+identity|module|people|verified|Control who gets into the app and what each person can do|requires:
+products|concept|sales|verified|Keep a single catalog of products and services|requires:
+sales|module|sales|verified|Sell: orders, items and invoices|requires:contacts,products

@@ -1,0 +1,31 @@
+{
+  "id": "approvals",
+  "version": "3.0.0",
+  "trust": "verified",
+  "need": "Request and decide approvals",
+  "provides": {
+    "concepts": [
+      "ApprovalRequest(title, status:PENDING|APPROVED|REJECTED|EXPIRED)",
+      "ApprovalDecision(status, completedBy)"
+    ],
+    "roles": [
+      "approver -> writes ApprovalRequest, ApprovalDecision; reads ApprovalRequest, ApprovalDecision",
+      "requester -> writes ApprovalRequest; reads ApprovalRequest"
+    ],
+    "flows": [
+      "RequestApproval(ApprovalRequest) -> save-request > await-decision > has-decision",
+      "ApplyApprovalDecision() -> read-request > still-pending > return-request",
+      "ExpireApprovalRequest() -> read-request > still-pending > return-request"
+    ],
+    "events": [
+      "ApprovalDecided"
+    ],
+    "screens": [
+      "ApprovalRequests /approvals",
+      "ApprovalDecisions /approvals/decisions"
+    ]
+  },
+  "use": "{\"from\": \"git+https://github.com/MarceloGiazzon/NPR.git//packs/approvals@approvals-3.0.0\", \"provides\": {\"roleBindings\": {\"approver\": \"<YourRole>\", \"requester\": \"<YourRole>\"}}}",
+  "limit": "no limit was recorded for this pack",
+  "budgetTokens": 253
+}
