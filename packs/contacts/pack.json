@@ -2,7 +2,7 @@
   "$schema": "../../schemas/pack.schema.json",
   "dslVersion": "3.0.0",
   "pack": "contacts",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "namespace": "com.npdev.contacts",
   "description": "Built-in NPDev contacts pack: organizations (customers, suppliers, partners), the people who work there, and their postal addresses -- with list/detail/edit screens and the common queries. Reference it from any business app instead of re-modelling a CRM-lite by hand.",
   "category": "other",
@@ -82,27 +82,72 @@
     { "name": "Suppliers", "concept": "Organization", "where": "kind == 'SUPPLIER' && active == true", "orderBy": ["name"] },
     { "name": "ActiveContacts", "concept": "Contact", "where": "active == true", "orderBy": ["lastName", "firstName"] }
   ],
-  "autoPanels": [
+  "screens": [
     {
       "name": "Organizations",
+      "kind": "list",
       "concept": "Organization",
-      "route": "/organizations",
-      "surfaces": ["selection", "detail", "transaction"],
-      "selection": { "columns": ["name", "kind", "email", "phone", "active"] }
+      "admin": {
+        "route": "/organizations",
+        "surfaces": [
+          "selection",
+          "detail",
+          "transaction"
+        ],
+        "selection": {
+          "columns": [
+            "name",
+            "kind",
+            "email",
+            "phone",
+            "active"
+          ]
+        }
+      }
     },
     {
       "name": "Contacts",
+      "kind": "list",
       "concept": "Contact",
-      "route": "/contacts",
-      "surfaces": ["selection", "detail", "transaction"],
-      "selection": { "columns": ["lastName", "firstName", "organizationId", "email", "phone"] }
+      "admin": {
+        "route": "/contacts",
+        "surfaces": [
+          "selection",
+          "detail",
+          "transaction"
+        ],
+        "selection": {
+          "columns": [
+            "lastName",
+            "firstName",
+            "organizationId",
+            "email",
+            "phone"
+          ]
+        }
+      }
     },
     {
       "name": "Addresses",
+      "kind": "list",
       "concept": "Address",
-      "route": "/addresses",
-      "surfaces": ["selection", "detail", "transaction"],
-      "selection": { "columns": ["organizationId", "kind", "city", "country", "isDefault"] }
+      "admin": {
+        "route": "/addresses",
+        "surfaces": [
+          "selection",
+          "detail",
+          "transaction"
+        ],
+        "selection": {
+          "columns": [
+            "organizationId",
+            "kind",
+            "city",
+            "country",
+            "isDefault"
+          ]
+        }
+      }
     }
   ]
 }
