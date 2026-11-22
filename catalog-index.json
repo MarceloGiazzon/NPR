@@ -1,7 +1,7 @@
 {
   "schemaVersion": "npdev-pack-catalog.v1",
   "repository": "https://github.com/MarceloGiazzon/NPR.git",
-  "generatedAt": "2026-11-21T01:01:00Z",
+  "generatedAt": "2026-11-22T01:28:50Z",
   "packs": [
     {
       "pack": "approvals",
@@ -128,12 +128,12 @@
     },
     {
       "pack": "products",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "description": "Built-in NPDev products pack: the single product and service register every other pack points at. A product is what you sell, buy or stock, identified by its SKU. Selling price, purchase cost and stock levels are not here: the sales, purchasing and inventory packs keep their own data about a product in a satellite that points back to it, so the product itself is registered once.",
       "category": "other",
       "author": "NPDev",
       "path": "packs/products",
-      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/products@products-1.0.0",
+      "from": "git+https://github.com/MarceloGiazzon/NPR.git//packs/products@products-2.0.0",
       "concepts": [
         "Product"
       ]
